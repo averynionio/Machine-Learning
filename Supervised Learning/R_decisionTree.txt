@@ -1,0 +1,88 @@
+
+R version 4.0.5 (2021-03-31) -- "Shake and Throw"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.74 (7950) x86_64-apple-darwin17.0]
+
+[History restored from /Users/avery/.Rapp.history]
+
+> library(rpart)
+> 
+> 
+> ################################
+> ###      Create data set 
+> ################################
+> gender<-c("Male", "Male", "Female", "Female", "Male", 
++           "Male", "Female", "Female", "Male", "Female")
+> ownership<-c(0,1,1,0,1,0,1,1,2,2)
+> cost<-c("Cheap","Cheap","Cheap","Cheap","Cheap","Standard",
++           "Standard", "Expensive","Expensive","Expensive")
+> income<-c("Low", "Medium", "Medium", "Low", "Medium", 
++           "Medium", "Medium", "High", "Medium", "High")
+> transportation<-c("Bus", "Bus", "Train", "Bus", "Bus", "Train",
++           "Train", "Car", "Car", "Car")
+> 
+> #####################################
+> #  make the vectors to a data.frame 
+> #####################################
+> mat<-data.frame(gender, ownership, cost , income, transportation)
+> 
+> ###############################
+> ###  Creating the tree 
+> ###############################
+> fit2<-rpart(transportation~., data=mat, control=rpart.control(minsplit=2))
+> 
+> ###############################
+> ###   Printing the tree
+> ###############################
+> plot(fit2)
+> text(fit2)
+2021-08-16 16:03:04.138 R[34687:3291220] TSM AdjustCapsLockLEDForKeyTransitionHandling - _ISSetPhysicalKeyboardCapsLockLED Inhibit
+> library(rpart)
+> 
+> ###      Create data set 
+> how_often_to_cook<-c("Rare", "Rare", "Very Often", "Some Times",
++                      "Some Times", "Some Times", "Very Often", 
++                      "Rare", "Rare", "Some Times", "Rare",
++                      "Very Often", "Very Often", "Some Times")
+> 
+> age<-c("Under 30", "Under 30", "Under 30", "30-60", "60 up", 
++           "60 up", "60 up", "30-60", "60 up", "30-60", 
++           "30-60", "30-60", "Under 30","30-60")
+> 
+> haveKids<-c("No","No","No","No","Yes","Yes",
++           "Yes", "No","Yes","Yes","Yes","No","Yes","No")
+> gender<-c("Fremale", "Male", "Fremale", "Fremale", "Fremale", 
++           "Male", "Male", "Fremale", "Fremale", "Fremale", 
++           "Male", "Male", "Fremale", "Male")
+> buy<-c("No", "No", "Yes", "Yes", "Yes", "No",
++           "Yes", "No", "Yes", "Yes", "Yes", "Yes", "Yes", "No")
+> 
+> #  make the vectors to a data.frame 
+> mat<-data.frame(how_often_to_cook, age, haveKids , gender, buy)
+> 
+> 
+> ###  Creating the tree 
+> fit2<-rpart(buy~., data=mat, control=rpart.control(minsplit=2))
+> 
+> 
+> ###   Printing the tree
+> plot(fit2)
+> text(fit2)
+2021-08-16 16:23:27.357 R[34687:3291220] +[NSSavePanel _warmUp] attempted warmup
+> 
